@@ -203,7 +203,7 @@ def rental_harmony(total_rent,values) :
     #rent_frame
     
     #%%
-    solution = pd.concat([assignment,rent_frame], axis = 1)
+    solution = pd.concat([assignment,rent_frame], axis = 1).round(0)
      
     #%% CHECK:   
     #The utility of housemate j's room-and-rent to housemate i 
