@@ -69,11 +69,7 @@ def maxWeightMatching(edges, maxcardinality=False):
 
     # Python 2/3 compatibility.
     from sys import version as sys_version
-    if sys_version < '3':
-        integer_types = (int, long)
-    else:
-        integer_types = (int,)
-
+    
     # Deal swiftly with empty graphs.
     if not edges:
         return [ ]
