@@ -5,20 +5,12 @@ from robust_rental_harmony import rental_harmony
 
 st.title("Robust Rental Harmony Calculator")
 
-<<<<<<< HEAD
 # Ensure 'total_rent' is in session state before displaying the input widget
 if 'total_rent' not in st.session_state:
     st.session_state.total_rent = 13500.0  # Default value or previously set value
 
 # Display the total rent input and bind it to session state
 st.number_input("Enter the total rent:", min_value=0.0, step=0.01, value=st.session_state.total_rent, key="total_rent")
-=======
-# Input fields
-if 'total_rent' not in st.session_state:
-    st.session_state.total_rent = 13500.0
-st.session_state.total_rent = st.number_input("Enter the total rent:", min_value=0.0, step=0.01, value=st.session_state.total_rent, key="total_rent")
-num_housemates = st.number_input("Enter the number of housemates/rooms:", min_value=1, step=1, key="num_housemates")
->>>>>>> origin/master
 
 # Add checkbox for Google Sheets import
 use_gsheets = st.checkbox("Import data from Google Sheets (only for publicly shared spreadsheets)")
@@ -49,7 +41,6 @@ if use_gsheets:
             housemate_names = df.iloc[:, 0].tolist()
             
             st.success("Data imported successfully!")
-<<<<<<< HEAD
             
             st.session_state.edited_price_data = df.set_index(df.columns[0]).astype(float)
             print(st.session_state.edited_price_data)
@@ -57,21 +48,11 @@ if use_gsheets:
             # Display the Imported Room Prices when import button is pressed
             st.subheader("Imported Room Prices:")
             st.dataframe(st.session_state.edited_price_data)
-=======
-            st.subheader("Imported Room Prices:")
-            st.dataframe(df.set_index(df.columns[0]))
-            
-            st.session_state.edited_price_data = df.set_index(df.columns[0]).astype(float)
-            print(st.session_state.edited_price_data)
->>>>>>> origin/master
         except Exception as e:
             st.error(f"An error occurred while importing data: {str(e)}")
             st.warning("Make sure the Google Sheet is publicly shared and the URL is correct.")
 else:
-<<<<<<< HEAD
     num_housemates = st.number_input("Enter the number of housemates/rooms:", min_value=1, step=1, key="num_housemates")
-=======
->>>>>>> origin/master
     if num_housemates > 0:
         # Create input fields for room names and housemate names
         st.session_state.room_names = [st.text_input(f"Enter name for Room {i+1}:", key=f"room_name_{i}") for i in range(num_housemates)]
@@ -104,12 +85,6 @@ if st.button("Calculate Rental Harmony", key="calculate_button_unique"):
         solution['Room'] = solution['Room'].map(lambda x: st.session_state.room_names[x])
         envies.columns = st.session_state.room_names
         
-<<<<<<< HEAD
-=======
-        st.subheader("Price Data:")
-        st.dataframe(st.session_state.edited_price_data)
-
->>>>>>> origin/master
         st.subheader("Solution:")
         st.dataframe(solution, key="solution_display")
 
@@ -121,8 +96,4 @@ if st.button("Calculate Rental Harmony", key="calculate_button_unique"):
 
         st.success("Rental harmony calculated successfully!")
     else:
-<<<<<<< HEAD
         st.warning("Please enter or import room price data before calculating.")
-=======
-        st.warning("Please enter or import room price data before calculating.")
->>>>>>> origin/master
