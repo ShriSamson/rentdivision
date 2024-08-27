@@ -6,7 +6,9 @@ from robust_rental_harmony import rental_harmony
 st.title("Robust Rental Harmony Calculator")
 
 # Input fields
-total_rent = st.number_input("Enter the total rent:", min_value=0.0, step=0.01, key="total_rent")
+if 'total_rent' not in st.session_state:
+    st.session_state.total_rent = 0.0
+st.session_state.total_rent = st.number_input("Enter the total rent:", min_value=0.0, step=0.01, value=st.session_state.total_rent, key="total_rent")
 num_housemates = st.number_input("Enter the number of housemates/rooms:", min_value=1, step=1, key="num_housemates")
 
 # Add checkbox for Google Sheets import
@@ -62,11 +64,10 @@ else:
             df,
             num_rows="fixed",
             key="price_table",
-            column_config={name: st.column_config.NumberColumn(f"Price for {name}", min_value=0.0, max_value=float(total_rent), step=0.01) for name in st.session_state.room_names}
+            column_config={name: st.column_config.NumberColumn(f"Price for {name}", min_value=0.0, max_value=float(st.session_state.total_rent), step=0.01) for name in st.session_state.room_names}
         )
 
 if st.button("Calculate Rental Harmony", key="calculate_button_unique"):
-    #print('test')
     print(st.session_state.edited_price_data)
     if st.session_state.edited_price_data is not None:
         # Convert edited_price_data to the format expected by rental_harmony
@@ -74,7 +75,7 @@ if st.button("Calculate Rental Harmony", key="calculate_button_unique"):
         df.columns = range(len(df.columns))
 
         # Run the Robust Rental Harmony algorithm
-        (solution, envies, envy_free) = rental_harmony(total_rent, df)
+        (solution, envies, envy_free) = rental_harmony(st.session_state.total_rent, df)
 
         # Replace room numbers with room names in the solution
         solution['Room'] = solution['Room'].map(lambda x: st.session_state.room_names[x])
