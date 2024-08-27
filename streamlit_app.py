@@ -7,7 +7,7 @@ st.title("Robust Rental Harmony Calculator")
 
 # Input fields
 if 'total_rent' not in st.session_state:
-    st.session_state.total_rent = 0.0
+    st.session_state.total_rent = 13500.0
 st.session_state.total_rent = st.number_input("Enter the total rent:", min_value=0.0, step=0.01, value=st.session_state.total_rent, key="total_rent")
 num_housemates = st.number_input("Enter the number of housemates/rooms:", min_value=1, step=1, key="num_housemates")
 
