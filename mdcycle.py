@@ -24,7 +24,11 @@ def min_density_cycle(vertices,weight_dict,length_dict,error_tolerance=0) :
         m[i,j,L[i,j]] = W[i,j]   
     def is_valid_path(lst) :
         if len(lst) == 0:
+<<<<<<< HEAD
             return True
+=======
+            return true
+>>>>>>> origin/master
         elif lst[0] == lst[-1]:
             return len(set(lst)) == len(lst)-1
         else:

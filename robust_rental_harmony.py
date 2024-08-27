@@ -1,5 +1,9 @@
 #%%
+<<<<<<< HEAD
 location_of_this_script = "/Users/shri/Downloads/rentdivision-master"
+=======
+location_of_this_script = "/Users/andrew/Dropbox/_Python/rentdivision"
+>>>>>>> origin/master
 import sys
 sys.path.append(location_of_this_script)
 
@@ -203,7 +207,11 @@ def rental_harmony(total_rent,values) :
     #rent_frame
     
     #%%
+<<<<<<< HEAD
     solution = pd.concat([assignment,rent_frame], axis = 1)
+=======
+    solution = pd.concat([assignment,rent_frame], axis = 1).round(0)
+>>>>>>> origin/master
      
     #%% CHECK:   
     #The utility of housemate j's room-and-rent to housemate i 

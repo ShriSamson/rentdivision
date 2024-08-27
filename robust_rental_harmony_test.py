@@ -1,10 +1,18 @@
 #%%
+<<<<<<< HEAD
 location_of_this_script = "/Users/shri/Downloads/rentdivision-master"
+=======
+location_of_this_script = "/Users/andrew/Dropbox/_Python/rentdivision"
+>>>>>>> origin/master
 import sys
 sys.path.append(location_of_this_script)
 
 #%%
+<<<<<<< HEAD
 from robust_rental_harmony import rental_harmony
+=======
+from rental_harmony_lib import rental_harmony
+>>>>>>> origin/master
 import pandas as pd
 
 #%%
@@ -61,4 +69,8 @@ values
 rental_harmony(0,values)
 
 #%%
+<<<<<<< HEAD
 #time(rental_harmony(0,random_values(19,100))[2])
+=======
+time(rental_harmony(0,random_values(19,100))[2])
+>>>>>>> origin/master

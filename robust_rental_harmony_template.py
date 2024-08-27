@@ -4,17 +4,29 @@
 
 #%%
 #Modify this line to match the folder where you unzipped "rental_harmony.zip":
+<<<<<<< HEAD
 location_of_this_script = "/Users/shri/Downloads/rentdivision-master"
+=======
+location_of_this_script = "/Users/andrew/Dropbox/_Python/rentdivision"
+>>>>>>> origin/master
 import sys
 sys.path.append(location_of_this_script)
 
 #%%
+<<<<<<< HEAD
 from robust_rental_harmony import rental_harmony
+=======
+from rental_harmony_lib import rental_harmony
+>>>>>>> origin/master
 import pandas as pd
 
 #%%
 #Enter the total rent here:
+<<<<<<< HEAD
 total_rent = 13500
+=======
+total_rent = 5400
+>>>>>>> origin/master
 total_rent
 
 #%%
@@ -24,6 +36,7 @@ total_rent
 #would they be willing to pay to move into each other room?  
 #Enter those values here:
 values = pd.DataFrame({
+<<<<<<< HEAD
 #    Room       :    0      1      2      3      4      5      6      7      8      9
     'Alice'     :   [1600,    200,    300,    400,    200,    150,    200,    200,    100,   0  ],
     'Bob'       :   [1100,   32,    23,    0,    180,   150,   120,   90,    60,   30 ],
@@ -39,6 +52,16 @@ values = pd.DataFrame({
 
 values.columns = ['Room 0', 'Room 1', 'Room 2', 'Room 3', 'Room 4', 'Room 5', 'Room 6', 'Room 7', 'Room 8', 'Room 9']
 #values.columns
+=======
+#    Room       :    1      2       3       4
+    'Alice'     :   [30,    20,     0,      200 ],
+    'Bob'       :   [201,   32,     23,     0   ],
+    'Caitlin'   :   [31,    204,    29,     0   ],
+    'Dave'      :   [32,    26,     212,    0   ]
+    }).T
+values
+
+>>>>>>> origin/master
 #%%
 #Compute the (room,price) assignment that is maximally-far from 
 #creating ency between any two housemates; this assignment
@@ -49,9 +72,15 @@ solution
 
 #%%
 envies
+<<<<<<< HEAD
 #%%
 envy_free
 # %%
 url = 'https://docs.google.com/spreadsheets/d/1RMYYparf7i1n2-oUQUxL4g6fv8uv-wSZCyLYidB75Ak/export?format=csv'
 pd.read_csv(url)
 # %%
+=======
+
+#%%
+envy_free
+>>>>>>> origin/master
