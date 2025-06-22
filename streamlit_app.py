@@ -7,7 +7,7 @@ st.title("Robust Rental Harmony Calculator")
 
 # Ensure 'total_rent' is in session state before displaying the input widget
 if 'total_rent' not in st.session_state:
-    st.session_state.total_rent = 13500.0  # Default value or previously set value
+    st.session_state.total_rent = 3500.0  # Default value or previously set value
 
 # Display the total rent input and bind it to session state
 st.number_input("Enter the total rent:", min_value=0.0, step=0.01, value=st.session_state.total_rent, key="total_rent")
