@@ -5,12 +5,15 @@ from robust_rental_harmony import rental_harmony
 
 st.title("Robust Rental Harmony Calculator")
 
-# Ensure 'total_rent' is in session state before displaying the input widget
-if 'total_rent' not in st.session_state:
-    st.session_state.total_rent = 3500.0  # Default value or previously set value
+# Instructions
+st.markdown("""
+**Instructions:**
+
+Enter the names for the housemates and rooms, and have each housemate privately identify his/her least favorite room and write down a bid of $0 for that room. Next, have them privately write down how much extra they'd be willing to pay monthly (assuming they're playing close-to-average rent) for each other room. Then, reveal those values, enter them into the Marginal Values table below, and click "Calculate".
+""")
 
 # Display the total rent input and bind it to session state
-st.number_input("Enter the total rent:", min_value=0.0, step=0.01, value=st.session_state.total_rent, key="total_rent")
+st.number_input("Enter the total rent:", min_value=0.0, step=0.01, value=3500.0, key="total_rent")
 
 # Add checkbox for Google Sheets import
 use_gsheets = st.checkbox("Import data from Google Sheets (only for publicly shared spreadsheets)")
@@ -89,6 +92,9 @@ if st.button("Calculate Rental Harmony", key="calculate_button_unique"):
         st.dataframe(solution, key="solution_display")
 
         st.subheader("Envies:")
+        st.markdown("""
+        The Envies table is an estimate of how much the prices would have to change for a housemate to prefer a given room over their assigned room. Greater magnitudes indicate a larger price change needed in order to be envious, smaller negative values indicate someone is likely to be envious if only a small change in price or change in circumstance occurs.
+        """)
         st.dataframe(envies, key="envies_display")
 
         st.subheader("Envy-free:")
