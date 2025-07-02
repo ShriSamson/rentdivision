@@ -55,7 +55,7 @@ if use_gsheets:
             st.error(f"An error occurred while importing data: {str(e)}")
             st.warning("Make sure the Google Sheet is publicly shared and the URL is correct.")
 else:
-    num_housemates = st.number_input("Enter the number of housemates/rooms:", min_value=1, step=1, key="num_housemates")
+    num_housemates = st.number_input("Enter the number of housemates/rooms:", min_value=2, step=1, key="num_housemates")
     if num_housemates > 0:
         # Create input fields for room names and housemate names
         st.session_state.room_names = [st.text_input(f"Enter name for Room {i+1}:", key=f"room_name_{i}") for i in range(num_housemates)]
