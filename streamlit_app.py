@@ -5,6 +5,8 @@ from robust_rental_harmony import rental_harmony
 
 st.title("Robust Rental Harmony Calculator")
 
+st.markdown("Credit for the algorithm goes to [acritch](https://github.com/critcha/rentdivision)")
+
 # Instructions
 st.markdown("""
 **Instructions:**
