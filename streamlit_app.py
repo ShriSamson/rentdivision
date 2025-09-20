@@ -18,7 +18,7 @@ Enter the names for the housemates and rooms, and have each housemate privately 
 st.number_input("Enter the total rent:", min_value=0.0, step=0.01, value=3500.0, key="total_rent")
 
 # Add checkbox for Google Sheets import
-use_gsheets = st.checkbox("Recommended—Import data from Google Sheets (only for publicly shared spreadsheets)")
+use_gsheets = st.checkbox("Import data from Google Sheets (Recommended; only for publicly shared spreadsheets)")
 
 # Initialize edited_price_data in session state
 if 'edited_price_data' not in st.session_state:
