@@ -26,7 +26,7 @@ if 'edited_price_data' not in st.session_state:
     st.session_state.room_names = None
 
 if use_gsheets:
-    gsheet_url = st.text_input("Enter the publicly shared Google Sheets URL:", value="https://docs.google.com/spreadsheets/d/1NMh9PoxR5CAQ-p3zzhXMfsxs9o3tUQHVX9NwUY1iPag/edit?usp=sharing")
+    gsheet_url = st.text_input("Enter the publicly shared Google Sheets URL. Open the example link to see the required format.", value="https://docs.google.com/spreadsheets/d/1NMh9PoxR5CAQ-p3zzhXMfsxs9o3tUQHVX9NwUY1iPag/edit?usp=sharing")
     import_button = st.button("Import Data")
 
     if import_button and gsheet_url:
